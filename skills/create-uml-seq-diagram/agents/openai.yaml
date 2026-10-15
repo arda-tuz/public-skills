@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create UML Seq Diagram"
+  short_description: "Draw exam-ready UML 2.5.1 class and sequence diagrams"
+  default_prompt: "Use $create-uml-seq-diagram to draw a UML class diagram and a UML sequence diagram for this model in standard UML 2.5.1 notation, and verify them with check_uml.py --render --shot."
