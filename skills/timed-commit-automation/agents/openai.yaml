@@ -1,0 +1,4 @@
+interface:
+  display_name: "Timed Commit Automation"
+  short_description: "Move a finished repository to another one as a calendar of real-time commits"
+  default_prompt: "Use $timed-commit-automation to move my project from OWNER/SOURCE to OWNER/DESTINATION as a commit calendar: the backend by 19 November, everything by 1 December."
