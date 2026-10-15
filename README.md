@@ -39,7 +39,7 @@ npx skills add arda-tuz/public-skills --skill SKILL --agent claude-code --global
 ```
 
 - `--agent` takes one or more ids: `claude-code`, `codex`, `cursor`, `gemini-cli`, `github-copilot`, `opencode` (or `'*'` for every supported agent).
-- The skill is stored once in `.agents/skills/` (`~/.agents/skills/` at user level), which Codex, Cursor, Gemini CLI, GitHub Copilot and OpenCode read directly. Claude Code gets a symbolic link in `.claude/skills/` (`~/.claude/skills/`). Add `--copy` to get real copies instead of links.
+- For Claude Code the skill goes to `.claude/skills/` (`~/.claude/skills/` at user level). Codex, Cursor, Gemini CLI, GitHub Copilot and OpenCode share one copy in `.agents/skills/` (`~/.agents/skills/`). When you install for Claude Code and another agent together, the Claude Code folder is a symbolic link to that shared copy; add `--copy` to get real copies instead.
 - `npx skills add arda-tuz/public-skills --list` lists the skills in this repository, `npx skills update` updates installed skills, and `npx skills remove SKILL` removes one.
 
 ### Claude Code: plugin marketplace
@@ -54,9 +54,16 @@ This repository is also a Claude Code plugin marketplace with one plugin per ski
 The install dialog asks for the scope: user, project (shared through the repository's `.claude/settings.json`) or local (this repository, only for you). The same from a terminal:
 
 ```bash
+# User level
 claude plugin marketplace add arda-tuz/public-skills
-claude plugin install SKILL@arda-tuz-skills --scope user      # or --scope project
+claude plugin install SKILL@arda-tuz-skills --scope user
+
+# Project level: run in the repository, then commit .claude/settings.json
+claude plugin marketplace add arda-tuz/public-skills --scope project
+claude plugin install SKILL@arda-tuz-skills --scope project
 ```
+
+At project level both the marketplace and the plugin are recorded in `.claude/settings.json`, so Claude Code offers the plugin to everyone who opens the repository.
 
 Plugin skills are namespaced: call them as `/SKILL:SKILL`, for example `/timed-commit-automation:timed-commit-automation`. Update with `claude plugin marketplace update arda-tuz-skills` and `claude plugin update SKILL@arda-tuz-skills`. A plugin installed from a terminal loads in the next session, or after `/reload-plugins`.
 
