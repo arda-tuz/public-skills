@@ -1,0 +1,24 @@
+{
+  "name": "arda-tuz-skills",
+  "owner": {
+    "name": "Arda Tuz",
+    "url": "https://github.com/arda-tuz"
+  },
+  "description": "Agent skills shared by Arda Tuz",
+  "plugins": [
+    {
+      "name": "create-uml-seq-diagram",
+      "description": "Draws exam-ready UML 2.5.1 class and sequence diagrams as HTML/SVG and checks the notation and layout",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/create-uml-seq-diagram"]
+    },
+    {
+      "name": "timed-commit-automation",
+      "description": "Moves a finished project into another GitHub repository as a calendar of real-time commits pushed by a Claude Code cloud routine",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/timed-commit-automation"]
+    }
+  ]
+}
