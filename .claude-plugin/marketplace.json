@@ -19,6 +19,13 @@
       "source": "./",
       "strict": false,
       "skills": ["./skills/timed-commit-automation"]
+    },
+    {
+      "name": "web-course-complete",
+      "description": "Works through web courses with one user-selected model for browser use, computer use and local practice, with an optional installation subagent",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/web-course-complete"]
     }
   ]
 }

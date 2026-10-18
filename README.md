@@ -8,6 +8,7 @@ Agent skills I build and want to share with other people. Instead of a separate 
 |---|---|---|
 | [`create-uml-seq-diagram`](skills/create-uml-seq-diagram) | Exam-ready UML class and sequence diagrams | Any agent with Python 3.10+ |
 | [`timed-commit-automation`](skills/timed-commit-automation) | Gradual, scheduled migration of a project between GitHub repositories | Claude Code only |
+| [`web-course-complete`](skills/web-course-complete) | Web course completion with browser use, computer use and local practice | Any agent with browser and computer-use tools |
 
 ### create-uml-seq-diagram
 
@@ -16,6 +17,10 @@ Draws UML class diagrams and UML sequence diagrams in standard OMG UML 2.5.1 not
 ### timed-commit-automation
 
 Moves a finished project from one GitHub repository to another as a calendar of meaningful commits. You give the deadlines in plain language ("backend and frontend by 19 November, everything by 1 December"), review the commit calendar it proposes, and a Claude Code cloud routine then creates and pushes each commit on its planned day, authored by your own GitHub account and never backdated. The calendar and progress reports stay in the source repository; the destination receives only the project's files. It needs Claude Code cloud routines. [More](skills/timed-commit-automation/README.md).
+
+### web-course-complete
+
+Works through a web course from its existing progress using one user-selected model for browser use, computer use, questions and local practice. It asks for the primary model at startup and can optionally delegate installations to one separate setup agent. It reuses the existing account and environment, keeps a small continuation record and verifies the platform result and completion document. The skill instructions and original benchmark opening prompt are in Turkish. [More](skills/web-course-complete/README.md).
 
 ## Install
 
