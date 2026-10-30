@@ -38,8 +38,8 @@ def decorator():
     cd.association([dec.e(200), (720, 200), (720, 60), comp.e(60)],
                    End(aggregation="shared"), End(role="-component", mult="1", navigable=True))
     cd.generalization_tree([da.n(), db.n()], dec.s(), 284)
-    cd.note(760, 150, ["component.operation()"], links=[[(820, 178), (820, 232), dec.e(232)]])
-    cd.note(792, 340, ["super.operation()", "addedBehavior()"], links=[[(792, 373), db.e(373)]])
+    cd.note(760, 150, ["component.operation()"], links=[[(820, 178), (820, dec.row("operation")), dec.e_row("operation")]])
+    cd.note(792, 340, ["super.operation()", "addedBehavior()"], links=[[db.e_row("operation"), (792, db.row("operation"))]])
 
     sd = SequenceDiagram("decorator-seq", "Decorator pattern, sequence diagram",
                          "A client calls operation on decorator b, which forwards to decorator a, which forwards "
@@ -82,7 +82,7 @@ def proxy():
     cd.association([prx.w_(212), real.e(212)], End(),
                    End(role="-realSubject", mult="0..1", navigable=True))
     cd.note(678, 205, ["if (realSubject == null)", f"{NB * 4}realSubject = new RealSubject();",
-                       "realSubject.request();"], links=[[prx.e(233), (678, 233)]])
+                       "realSubject.request();"], links=[[prx.e_row("request"), (678, prx.row("request"))]])
 
     sd = SequenceDiagram("proxy-seq", "Proxy pattern, sequence diagram",
                          "The client calls request on the proxy, which creates the real subject on first use and "
@@ -118,8 +118,9 @@ def factory_method():
     cd.generalization([ccreator.n(170), creator.s(170)])
     cd.generalization([cproduct.n(630), product.s(630)], realization=True)
     cd.dependency([ccreator.e(238), cproduct.w_(238)], "Instantiate")
-    cd.note(320, 75, ["product = factoryMethod()"], links=[[creator.e(89), (320, 89)]])
-    cd.note(76, 300, ["return new ConcreteProduct()"], links=[[(140, 300), ccreator.s(140)]])
+    cd.note(320, 75, ["product = factoryMethod()"], links=[[creator.e_row("anOperation"), (320, creator.row("anOperation"))]])
+    cd.note(30, 300, ["return new ConcreteProduct()"],
+            links=[[ccreator.w_row("factoryMethod"), (44, ccreator.row("factoryMethod")), (44, 300)]])
 
     sd = SequenceDiagram("factory-method-seq", "Factory Method pattern, sequence diagram",
                          "The client calls anOperation on a concrete creator, which calls its own factoryMethod; "
@@ -156,7 +157,7 @@ def singleton():
                    ops=["-Singleton()", Op("+getInstance(): Singleton", static=True)], w=220)
     cd.dependency([client.e(76), sgl.w_(76)], "use")
     cd.note(480, 74, ["if (instance == null)", f"{NB * 4}instance = new Singleton();", "return instance;"],
-            links=[[sgl.e(101), (480, 101)]])
+            links=[[sgl.e_row("getInstance"), (480, sgl.row("getInstance"))]])
 
     sd = SequenceDiagram("singleton-seq", "Singleton pattern, sequence diagram",
                          "The first getInstance call creates the only instance; a later call by another client "

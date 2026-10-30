@@ -24,6 +24,7 @@ one of those faces renders the page.
 from __future__ import annotations
 
 import math
+import re
 from dataclasses import dataclass, field
 from html import escape
 
@@ -275,6 +276,7 @@ class Box:
     w: float
     h: float
     name: str = ""
+    rows: dict = field(default_factory=dict)   # feature text -> y of its row centre (class boxes)
 
     @property
     def cx(self):
@@ -304,6 +306,26 @@ class Box:
 
     def e(self, y=None):
         return (self.right, self.cy if y is None else y)
+
+    def row(self, feature):
+        """y of the row that shows `feature` in a class box: its full text ("+Notify()") or just the
+        operation / attribute name ("Notify"). Used to anchor a note on one operation (§7.2.4)."""
+        if feature in self.rows:
+            return self.rows[feature]
+        hits = [y for t, y in self.rows.items()
+                if re.match(r"[+\-#~]?\s*" + re.escape(feature) + r"\s*[(:]", t)]
+        if len(hits) != 1:
+            raise ValueError(f"{self.name}: {'no' if not hits else 'more than one'} row matches {feature!r}; "
+                             f"rows are {list(self.rows)}")
+        return hits[0]
+
+    def e_row(self, feature):
+        """Attach point on the right edge at the row of `feature` (a note about that operation)."""
+        return (self.right, self.row(feature))
+
+    def w_row(self, feature):
+        """Attach point on the left edge at the row of `feature`."""
+        return (self.x, self.row(feature))
 
 
 @dataclass
@@ -384,6 +406,7 @@ class ClassDiagram(_Canvas):
             else:
                 self.text(cx, by, s, SIZE_TEXT, anchor="middle", layer="nodes", inside=rid, role="keyword")
         top = cur
+        rows = {}
         for kind, feats in compartments:
             self.line(x, top, x + bw, top, layer="nodes", color=SEP)
             hgt = (8 + self.LINE * len(feats)) if feats else 12
@@ -391,8 +414,9 @@ class ClassDiagram(_Canvas):
                 self.text(x + self.PAD_X, top + 4 + 12 + self.LINE * i, f.text, SIZE_TEXT,
                           underline=getattr(f, "static", False), italic=getattr(f, "abstract", False),
                           layer="nodes", inside=rid, role=kind)
+                rows[f.text] = top + 4 + 12 + self.LINE * i - 4
             top += hgt
-        return Box(x, y, bw, total_h, name)
+        return Box(x, y, bw, total_h, name, rows)
 
     # ---------------------------------------------------------------- relationships
     def _end_labels(self, p, u, end: End, adorn_len: float):

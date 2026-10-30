@@ -3,7 +3,7 @@ name: create-uml-seq-diagram
 description: Draw UML class diagrams and UML sequence diagrams in correct, exam-level UML 2.5.1 notation as self-contained HTML/SVG (PNG/SVG export on request). Use for class/structure diagrams (classes, interfaces, abstract classes, attributes, operations, static members, generalization, realization, association with roles/multiplicity/navigability, aggregation, composition, enumerations, dependencies, notes), sequence/interaction diagrams (sd frame, lifelines, actors, activations, sync/async/reply/create/found/delete messages, self-calls, alt/opt/loop/par/break fragments), and design-pattern diagrams such as GoF structure and collaboration.
 license: MIT
 metadata:
-  version: "2.0"
+  version: "2.1"
   forked-from: diagram-design 2.6.78 (Cathryn Lavery, MIT)
   standard: OMG UML 2.5.1
 ---
@@ -38,7 +38,7 @@ Coordinates are px. A box returns attach points `n(x)`, `s(x)`, `w_(y)`, `e(y)` 
 | Association | `cd.association(pts, End(...), End(...))`; `End(role="-items", mult="*", navigable=True)`; optional `name="owns", name_at=(x, y)` |
 | Aggregation / composition | `End(aggregation="shared")` / `End(aggregation="composite", mult="1")` on the **whole's** end |
 | Dependency | `cd.dependency(pts, "use")`; creation: `"Instantiate"` |
-| Note | `cd.note(x, y, ["line", ...], links=[pts])` |
+| Note | `cd.note(x, y, ["line", ...], links=[pts])`; a note about one operation (its body, pseudocode) ends on that operation's row: `box.e_row("Notify")` / `box.w_row("Notify")`, reached by a horizontal last segment; `box.n()`/`box.s()` mean a note about the whole class |
 | Sequence diagram | `sd = SequenceDiagram(slug, title, desc, width, height, name="operationName")` |
 | Lifeline | `sd.lifeline(key, x, "name : Type")`; created later: `created_at=y`; actor: `actor=True`; static calls: `sd.lifeline(key, x, "Cls", keyword="Metaclass")` |
 | Activation | `sd.execution(key, y1, y2, level=0)` (level 1 for a self-call) |
@@ -59,7 +59,7 @@ Nothing beyond this table is supported on purpose: it is what an exam asks for.
 - Association: plain solid line; open arrowhead only to show navigability; role name and multiplicity at the end they describe.
 - Aggregation hollow, composition filled diamond, at the whole.
 - Dependency: dashed open arrow with a keyword (`«use»`, `«Instantiate»`).
-- Notes: folded-corner box, dashed line without arrowhead.
+- Notes: folded-corner box, dashed line without arrowhead. A note that shows an operation's body is anchored on that operation's row (side edge, same height as the operation text), never on the top or bottom edge, so the reader sees which operation it implements.
 
 **Sequence diagram**
 - Everything inside an `sd name` frame; heads read `name : Type` (not underlined).

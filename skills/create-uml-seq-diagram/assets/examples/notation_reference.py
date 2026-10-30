@@ -33,7 +33,7 @@ def class_diagram():
                    name="owns", name_at=(270, 162))
     cd.association([bank.s(790), (790, 350), (130, 350), cust.s(130)],
                    End(aggregation="shared"), End(role="-customers", mult="*", navigable=True))
-    cd.note(600, 140, ["fee() depends on the", "account kind"], links=[[acct.e(101), (620, 101), (620, 140)]])
+    cd.note(600, 140, ["fee() depends on the", "account kind"], links=[[acct.e_row("fee"), (620, acct.row("fee")), (620, 140)]])
     return cd
 
 
