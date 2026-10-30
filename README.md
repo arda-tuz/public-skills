@@ -8,6 +8,7 @@ Agent skills I build and want to share with other people. Instead of a separate 
 |---|---|---|
 | [`create-uml-seq-diagram`](skills/create-uml-seq-diagram) | Exam-ready UML class and sequence diagrams | Any agent with Python 3.10+ |
 | [`timed-commit-automation`](skills/timed-commit-automation) | Gradual, scheduled migration of a project between GitHub repositories | Claude Code only |
+| [`study-buddy`](skills/study-buddy) | Study partner for a course and its exams, with a self-updating study folder | Any agent with Python 3.8+ |
 | [`web-course-complete`](skills/web-course-complete) | Web course completion with browser use, computer use and local practice | Any agent with browser and computer-use tools |
 
 ### create-uml-seq-diagram
@@ -17,6 +18,10 @@ Draws UML class diagrams and UML sequence diagrams in standard OMG UML 2.5.1 not
 ### timed-commit-automation
 
 Moves a finished project from one GitHub repository to another as a calendar of meaningful commits. You give the deadlines in plain language ("backend and frontend by 19 November, everything by 1 December"), review the commit calendar it proposes, and a Claude Code cloud routine then creates and pushes each commit on its planned day, authored by your own GitHub account and never backdated. The calendar and progress reports stay in the source repository; the destination receives only the project's files. It needs Claude Code cloud routines. [More](skills/timed-commit-automation/README.md).
+
+### study-buddy
+
+Turns a folder of course material (slides, notes, books, past exams) into a study system that keeps itself up to date. It writes an `AGENTS.md` and a `kb/` folder of Markdown files that hold the course settings, a map of every file, your preferences, an analysis of past questions and your progress, so any later session picks up where the last one stopped. It explains topics from the big picture down, cites the page behind every claim, and builds practice exams, annotated slides and tablet-ready PDFs aimed at what is likely to be asked. Its defaults and file templates are in Turkish. [More](skills/study-buddy/README.md).
 
 ### web-course-complete
 
@@ -54,6 +59,15 @@ This repository is also a Claude Code plugin marketplace with one plugin per ski
 ```text
 /plugin marketplace add arda-tuz/public-skills
 /plugin install SKILL@arda-tuz-skills
+```
+
+On Claude Code 2.1.275 or later, one command adds the marketplace and installs a plugin:
+
+```text
+/plugin install create-uml-seq-diagram --marketplace arda-tuz/public-skills
+/plugin install timed-commit-automation --marketplace arda-tuz/public-skills
+/plugin install study-buddy --marketplace arda-tuz/public-skills
+/plugin install web-course-complete --marketplace arda-tuz/public-skills
 ```
 
 The install dialog asks for the scope: user, project (shared through the repository's `.claude/settings.json`) or local (this repository, only for you). The same from a terminal:

@@ -26,6 +26,13 @@
       "source": "./",
       "strict": false,
       "skills": ["./skills/web-course-complete"]
+    },
+    {
+      "name": "study-buddy",
+      "description": "Turns a course folder into a self-updating study system: top-down explanations, past-question analysis, progress tracking, practice exams and annotated slides",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/study-buddy"]
     }
   ]
 }

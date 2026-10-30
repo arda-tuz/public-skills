@@ -1,0 +1,4 @@
+interface:
+  display_name: "Study Buddy"
+  short_description: "Study partner for a course and its exams, with a self-updating study folder"
+  default_prompt: "Use $study-buddy to set up this course folder for my midterm, explain the topics top-down and map the past exam questions."
