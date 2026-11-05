@@ -1,0 +1,34 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% Copy this file once per section (sections/introduction.tex, sections/method.tex, ...) and list each in main.tex.
+% Paths inside a section file are written relative to this folder and wrapped in \subfix, so the file compiles
+% both inside main.tex and on its own.
+
+\section{FILLME Section Title}\label{sec:fillme}
+
+FILLME body text with a citation~\cite{fillme2024key}, a figure reference (Fig.~\ref{fig:fillme}) and a table
+reference (Table~\ref{tab:fillme}).
+
+\paragraph{FILLME paragraph heading} Fine-grained structure inside a subsection.
+
+% Figure: caption below the image. Names resolve through \graphicspath (figures/ and code/).
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{fillme-figure}
+  \caption{FILLME caption.}
+  \label{fig:fillme}
+\end{figure}
+
+% Table: kept in tables/, caption above the tabular (inside the table file).
+\input{\subfix{../tables/table-template}}
+
+% Short code listing; longer code is better shown as an image in code/.
+\begin{minted}[fontsize=\footnotesize,breaklines]{python}
+def fillme(x):
+    return x
+\end{minted}
+
+% Bibliography only when this file is compiled on its own.
+\ifSubfilesClassLoaded{\bibliographystyle{IEEEtran}\bibliography{\subfix{../references}}}{}
+\end{document}

@@ -33,6 +33,13 @@
       "source": "./",
       "strict": false,
       "skills": ["./skills/study-buddy"]
+    },
+    {
+      "name": "project-report-and-slide-creation",
+      "description": "Turns a finished project into an IEEE LaTeX report on Overleaf, a presentation deck and study documents, after one round of questions",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/project-report-and-slide-creation"]
     }
   ]
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Report and Slide Creation"
+  short_description: "IEEE report on Overleaf, slides and study documents from a finished project"
+  default_prompt: "Use $project-report-and-slide-creation to write the final report for this project in IEEE format, keep it on Overleaf, and prepare the presentation and my study documents."

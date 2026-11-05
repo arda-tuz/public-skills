@@ -10,6 +10,7 @@ Agent skills I build and want to share with other people. Instead of a separate 
 | [`timed-commit-automation`](skills/timed-commit-automation) | Gradual, scheduled migration of a project between GitHub repositories | Claude Code only |
 | [`study-buddy`](skills/study-buddy) | Study partner for a course and its exams, with a self-updating study folder | Any agent with Python 3.8+ |
 | [`web-course-complete`](skills/web-course-complete) | Web course completion with browser use, computer use and local practice | Any agent with browser and computer-use tools |
+| [`project-report-and-slide-creation`](skills/project-report-and-slide-creation) | IEEE report on Overleaf, presentation deck and study documents from a finished project | Any agent with LaTeX; the research round runs best in Claude Code |
 
 ### create-uml-seq-diagram
 
@@ -26,6 +27,10 @@ Turns a folder of course material (slides, notes, books, past exams) into a stud
 ### web-course-complete
 
 Works through a web course from its existing progress using one user-selected model for browser use, computer use, questions and local practice. It asks for the primary model at startup and can optionally delegate installations to one separate setup agent. It reuses the existing account and environment, keeps a small continuation record and verifies the platform result and completion document. The skill instructions and original benchmark opening prompt are in Turkish. [More](skills/web-course-complete/README.md).
+
+### project-report-and-slide-creation
+
+Turns a finished project into its academic deliverables after one round of questions: an IEEE two-column LaTeX report kept on and compiled by Overleaf, a presentation deck built with the `slides` skill, and private study documents with a presentation script, a tested demo runbook and likely questions. It reads the code, checks every number against the results, runs the project when results are missing, and runs one literature research round when the project's sources are not enough. It handles solo and team projects and proposal, interim and final reports. Without an instruction the report and deck are in English and the study documents are in Turkish. [More](skills/project-report-and-slide-creation/README.md).
 
 ## Install
 
@@ -68,6 +73,7 @@ On Claude Code 2.1.275 or later, one command adds the marketplace and installs a
 /plugin install timed-commit-automation --marketplace arda-tuz/public-skills
 /plugin install study-buddy --marketplace arda-tuz/public-skills
 /plugin install web-course-complete --marketplace arda-tuz/public-skills
+/plugin install project-report-and-slide-creation --marketplace arda-tuz/public-skills
 ```
 
 The install dialog asks for the scope: user, project (shared through the repository's `.claude/settings.json`) or local (this repository, only for you). The same from a terminal:
@@ -131,7 +137,8 @@ skills/<name>/              one folder per skill
   README.md                 description for people
   LICENSE
   agents/openai.yaml        Codex display metadata
-  scripts/ references/ assets/
+  settings.md               plain-language settings, if the skill has any
+  scripts/ references/ assets/ docs/
 .claude-plugin/marketplace.json   Claude Code marketplace, one plugin per skill
 ```
 

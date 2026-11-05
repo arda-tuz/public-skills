@@ -1,0 +1,10 @@
+# Read by olcli on push and sync (gitignore syntax), on top of its built-in LaTeX artifact list.
+# Overleaf compiles its own PDF, so local build outputs stay local.
+/main.pdf
+sections/*.pdf
+
+# olcli already skips dotfiles; listed again so the cookie can never be uploaded by any olcli version.
+.olauth
+.olcli.json
+.gitignore
+.olcli-diff/

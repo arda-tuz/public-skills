@@ -1,0 +1,16 @@
+# Overleaf session cookie (read by olcli from this folder). Never commit it.
+.olauth
+.olcli-diff/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.synctex.gz
+*.pyg
+_minted*/
+sections/*.pdf

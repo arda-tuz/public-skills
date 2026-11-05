@@ -1,0 +1,78 @@
+% IEEE two-column conference report.
+% Fixed: the document class, the package list, the bibliography style, the author block layout
+% and the header link style. Everything else (title, sections, length, content) is per project.
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[section]{placeins}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{stfloats}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{minted}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{subfiles}
+
+% Links stay clickable but get no colored boxes, as in the reference PDF.
+\hypersetup{hidelinks}
+% subfiles wraps \graphicspath and \bibliography, so these paths stay valid when a section file is
+% compiled on its own. Do not add \subfix here; it would be applied twice.
+\graphicspath{{figures/}{code/}}
+
+% Header links under the title: centered, \Large, bold, red, underlined. The spacing above and below the
+% line reproduces the reference PDF to the point. Several links share the line, separated by \quad.
+\newcommand{\headerlink}[2]{\href{#1}{\textcolor{red}{\underline{\textbf{#2}}}}}
+\newcommand{\headerlinks}[1]{\\[0.55em]{\Large #1\rule[-25.2pt]{0pt}{25.2pt}}}
+
+\begin{document}
+
+% With no links, drop the \headerlinks{...} part: \title{Title of the Paper}
+\title{FILLME Title of the Paper\headerlinks{%
+\headerlink{https://example.org/FILLME}{GitHub Repository}}}
+% Two links: \headerlinks{\headerlink{URL1}{GitHub Repository}\quad\headerlink{URL2}{Demo Video}}
+
+% One \IEEEauthorblockN/\IEEEauthorblockA pair per author, separated by \and.
+\author{
+\IEEEauthorblockN{FILLME Author One}
+\IEEEauthorblockA{
+\textit{Student No: FILLME} \\
+\textit{Department of FILLME} \\
+\textit{FILLME University} \\
+FILLME City, FILLME Country \\
+fillme@example.org
+}
+\and
+\IEEEauthorblockN{FILLME Author Two}
+\IEEEauthorblockA{
+\textit{Student No: FILLME} \\
+\textit{Department of FILLME} \\
+\textit{FILLME University} \\
+FILLME City, FILLME Country \\
+fillme@example.org
+}
+}
+
+\maketitle
+
+\begin{abstract}
+FILLME abstract.
+\end{abstract}
+
+\begin{IEEEkeywords}
+FILLME, index terms
+\end{IEEEkeywords}
+
+% One \subfile per section file, in reading order.
+\subfile{sections/section-template}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
