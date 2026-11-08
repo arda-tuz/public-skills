@@ -39,8 +39,8 @@ technical detail.
 per minute of talk is a reasonable start; adjust it to the material.
 
 **Agreement with the report.** Every number, name and claim comes from the fact sheet and agrees with the report.
-Re-render the report's figures at slide resolution instead of screenshotting the PDF. A deck for an interim or
-proposal report covers that report's scope only.
+Re-render the report's figures at slide resolution instead of screenshotting the PDF, from the same scripts at
+slide size (`figures.md`). A deck for an interim or proposal report covers that report's scope only.
 
 **Team decks.**
 - Group the slides by presenter in talk order, and mark who presents each part the way the user prefers, for

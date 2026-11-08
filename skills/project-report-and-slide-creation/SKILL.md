@@ -1,9 +1,9 @@
 ---
 name: project-report-and-slide-creation
-description: Turns a finished project in the workspace into its academic deliverables, end to end and unattended after one round of questions. It writes an IEEE-format LaTeX report (proposal, interim/status or final), kept in sync with and compiled on Overleaf. It builds the presentation deck (.pptx and .pdf) with the slides skill. It writes personal study documents (a project primer, a per-person study guide, a minute-by-minute presentation script, a demo runbook and cheat sheet, and likely questions with answers). It runs the project when results are missing and runs one literature research round when the existing sources are not enough. Use it whenever the user wants a report, paper, write-up, proposal, interim or status report, presentation, slides, or material to prepare for presenting or demoing a project, solo or team, even if they only say "raporu yaz", "sunumu hazırla" or "write the final report".
+description: Turns a finished project in the workspace into its academic deliverables, end to end and unattended after one round of questions. It writes an IEEE-format LaTeX report (proposal, interim/status or final), kept in sync with and compiled on Overleaf. It draws data figures with the scientific-figure-making skill where they serve the paper best. It builds the presentation deck (.pptx and .pdf) with the slides skill. It writes personal study documents (a project primer, a per-person study guide, a minute-by-minute presentation script, a demo runbook and cheat sheet, and likely questions with answers). It runs the project when results are missing and runs one literature research round when the existing sources are not enough. Use it whenever the user wants a report, paper, write-up, proposal, interim or status report, presentation, slides, or material to prepare for presenting or demoing a project, solo or team, even if they only say "raporu yaz", "sunumu hazırla" or "write the final report".
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Project report and slide creation
@@ -36,6 +36,7 @@ Before anything else, read `settings.md`. It holds the research team's models an
 4. **Make sure the evidence exists** (`references/evidence.md`).
    - Use the project's outputs where they are good enough.
    - Otherwise run the project, its experiments and its demo to produce results, figures and screenshots, and record how you produced them.
+   - Choose the form of every visual (table, data figure, diagram) with `references/figures.md`. Data figures are drawn with the `scientific-figure-making` skill, loaded fresh in each run, wherever it serves the paper; it is never required.
 5. **Research, once, only if needed** (`references/research-round.md`). Compare what the report needs with the literature the project already has: related work, comparisons with published results, and the origins of methods and data.
    - If there is a gap, plan every research question first. Then run the bundled research workflow a single time: parallel web searchers, a reviewer behind each one, and one collector that writes one research folder with BibTeX. The models and limits come from `settings.md`.
    - Invoking this skill is the user's opt-in to that one workflow run.
@@ -43,7 +44,7 @@ Before anything else, read `settings.md`. It holds the research team's models an
    - Start from `assets/ieee-report/`.
    - Fill the sections the user requires and design the rest.
    - Compile locally, push to Overleaf, compile there and read both logs.
-7. **Build the deck** (`references/slides.md`) with the `slides` skill. Work top-down and in simple academic language, from the report's own figures and numbers.
+7. **Build the deck** (`references/slides.md`) with the `slides` skill. Work top-down and in simple academic language, from the report's own figures and numbers, re-rendering the figure scripts at slide size (`references/figures.md`).
 8. **Write the study documents** (`references/study-documents.md`) after the deck is final, because the scripts point at its slide numbers.
    - Before writing a demo runbook, run the demo yourself, following the runbook step by step.
 9. **Check everything together, then deliver** (`references/quality-gates.md`).
@@ -110,7 +111,7 @@ Unless the user names another place, everything goes under `deliverables/` at th
 
 ```text
 deliverables/
-├── notes/           intake.md, facts.md, plan.md, evidence.md (working notes, not handed in)
+├── notes/           intake.md, facts.md, plan.md, evidence.md, figures.md (working notes, not handed in)
 ├── research/        the research round's folder, if one ran (README.md, references.bib, literature.md, ...)
 ├── evidence/        results, figures and screenshots this run generated, with the scripts that made them
 ├── report-<kind>/   one LaTeX project per report, mirrored on Overleaf (main.tex, sections/, figures/, tables/, code/)

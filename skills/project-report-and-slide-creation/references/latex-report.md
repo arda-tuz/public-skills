@@ -94,6 +94,8 @@ mentions how the paper was put together.
 
 ## Figures, tables, code
 
+Which form each visual takes, and how data figures are drawn, is in `figures.md`.
+
 - **Captions and order.** Figure captions go below the image and table captions above the table. Each float
   appears after the paragraph that first refers to it, and the text says what the reader should see in it.
 - **Placement.** Most floats take `[!t]` in two columns; small ones can take `[!htbp]`. Wide floats use
@@ -134,6 +136,8 @@ Dense pages are part of the format: the reference report fills every column.
 - **The last page.** Balance its columns. When content alone does not do it, put `\IEEEtriggeratref{n}` right
   before `\bibliography` in `main.tex`. It starts a new column at reference `n`; try values until both columns end
   at about the same height, and compile twice after each change.
+  - A value carried over from an earlier version of the report is stale once floats or text change.
+  - Remove it and tune it again; a stale trigger can leave a last page with one column of references.
 - **Page limit.** When the user gives one, the compiled PDF meets it, references included. Fit the content to
   the limit; never squeeze the layout.
 
@@ -156,4 +160,8 @@ pdflatex -shell-escape -interaction=nonstopmode main.tex
 
 Read `main.log`. Expect no errors, no undefined references or citations, no missing files, and no overfull boxes
 that show. The only expected warning is caption's "Unknown document class", which comes from `subcaption` under
-IEEEtran and is part of the tested format. Then go through `quality-gates.md`.
+IEEEtran and is part of the tested format.
+
+"Text page N contains only floats" is acceptable when the float-only column is full and its floats are discussed on
+the same or the facing page. A whole page of floats, or a float-only column with a gap, is not; fix it as in "No
+wasted space". Then go through `quality-gates.md`.

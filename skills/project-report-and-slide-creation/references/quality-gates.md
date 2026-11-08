@@ -26,6 +26,9 @@ Run all of them on the final versions. Fix what they find, and run them again af
 - **Fix what shows.** Half-empty columns, a float stranded after a section break, an unbalanced last page, text
   running into margins, unreadable figures.
 - **Page limit.** A report with a page limit meets it.
+- **Figures.** Each figure reads at its printed size, its colors mean the same thing as in the other figures, and
+  `notes/figures.md` records why it has its form. When `scientific-figure-making` was used, `notes/evidence.md`
+  records its revision.
 - **The deck.** Slides have no overflow or overlaps, and the `slides` skill's checks pass.
 
 ## 3. The report and deck speak in the authors' voice

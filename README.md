@@ -30,7 +30,7 @@ Works through a web course from its existing progress using one user-selected mo
 
 ### project-report-and-slide-creation
 
-Turns a finished project into its academic deliverables after one round of questions: an IEEE two-column LaTeX report kept on and compiled by Overleaf, a presentation deck built with the `slides` skill, and private study documents with a presentation script, a tested demo runbook and likely questions. It reads the code, checks every number against the results, runs the project when results are missing, and runs one literature research round when the project's sources are not enough. It handles solo and team projects and proposal, interim and final reports. Without an instruction the report and deck are in English and the study documents are in Turkish. [More](skills/project-report-and-slide-creation/README.md).
+Turns a finished project into its academic deliverables after one round of questions: an IEEE two-column LaTeX report kept on and compiled by Overleaf, a presentation deck built with the `slides` skill, and private study documents with a presentation script, a tested demo runbook and likely questions. It reads the code, checks every number against the results, runs the project when results are missing, and runs one literature research round when the project's sources are not enough. It chooses a table, a data figure or a diagram for each visual, and draws data figures with the `scientific-figure-making` skill where that serves the paper. It handles solo and team projects and proposal, interim and final reports. Without an instruction the report and deck are in English and the study documents are in Turkish. [More](skills/project-report-and-slide-creation/README.md).
 
 ## Install
 

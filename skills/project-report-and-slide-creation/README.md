@@ -3,6 +3,7 @@
 Turns a finished project into its academic deliverables: an IEEE-format report kept on Overleaf, a presentation deck, and private study documents. You answer one round of questions, then the agent works unattended and writes everything from a single fact sheet, so the deliverables never contradict each other or the code.
 
 - **Report.** A two-column IEEE LaTeX project, split into section and table files, compiled locally and on Overleaf with both logs checked. The LaTeX format is fixed and comes from a tested template; the title, sections, length and figures follow your requirements. It supports a proposal, an interim or status report, a final report, or whatever your course calls them.
+- **Figures.** Each visual gets the form a strong paper would give it: a table for exact numbers, a data figure when the shape of the data is the argument, a vector diagram for architecture and flow. Data figures are drawn with the [`scientific-figure-making`](https://github.com/ChenLiu-1996/figures4papers) skill where it helps, never by quota. That skill is loaded fresh in every run, so its updates take effect here without a new release, and the revision used is recorded. Where its house style and the paper disagree, the paper decides size and type (figures drawn at 3.5 in or 7.16 in with 7-8 pt text, checked with `pdfinfo` and `pdffonts`); the palette, its meanings and the layout patterns come from the sub-skill.
 - **Deck.** A `.pptx` and `.pdf` built with the `slides` skill, top-down and in plain academic language, using the report's own figures and numbers. Team decks are grouped by presenter.
 - **Study documents.** A general primer for the team and a personal document per member, with their part of the project, a minute-by-minute script keyed to the final slide numbers, a demo runbook tested step by step, a printable cheat sheet, and likely questions with answers.
 - **Real numbers only.** The code is read and checked before anything is written, a document that disagrees with the results loses, and every number traces to a result file, a log or a run. Missing results come from running the project. Runs that cost money or use your credentials need your approval first, and files the run rewrites are saved aside and restored.
@@ -21,13 +22,14 @@ Any deliverable can be in any language you ask for. Without an instruction, the 
 - `pdftoppm` (Poppler), to render and inspect the pages.
 - The `slides` skill for the deck, or the `pptx` skill or PptxGenJS as a fallback, plus LibreOffice for the PDF export.
 - Chrome or Chromium, optional, for converting SVG diagrams and rendering study documents.
+- Optional, for data figures: the `scientific-figure-making` skill from [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) (its README shows how to install it) and Python with matplotlib. Without it, data figures are drawn in a consistent style of the skill's own.
 - Whatever your own project needs to run.
 
 The research round uses Claude Code's Workflow tool. In other agents it falls back to subagents with the same three roles, or is skipped with a note if neither exists. The Overleaf cookie stays in the report folder's git-ignored `.olauth` and is never printed.
 
 ## Status
 
-The report path has been used end to end on a real project, from the questions to the Overleaf compile. The deck, the study documents and the research workflow have not been run on a real project yet.
+The report path has been used end to end on a real project, from the questions to the Overleaf compile, and once more with the figure policy and `scientific-figure-making`. The deck, the study documents and the research workflow have not been run on a real project yet.
 
 ## Install
 

@@ -19,7 +19,8 @@ offer `-r`.
   - `olcli` never uploads dotfiles, and the template's `.olignore` lists `.olauth` again as a second guard.
   - The `push --dry-run --show-ignored` step below confirms that the file stays local.
   - Never print the cookie, and never write it to notes, logs or any other file.
-- **Checking it works.** From the report folder, run `olcli whoami` and `olcli list`. If the cookie is rejected or
+- **Checking it works.** From the report folder, run `olcli auth status` (called `olcli whoami` before 0.16) and
+  `olcli list`. If the cookie is rejected or
   shows no projects, stop and ask for a fresh one. This is one of the few blockers worth a question.
 
 ## Project setup

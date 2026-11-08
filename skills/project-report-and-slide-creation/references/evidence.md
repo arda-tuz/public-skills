@@ -42,9 +42,11 @@ Use the project's outputs where they hold up. Do not regenerate them for their o
 
 ## Figures, tables and diagrams
 
-- **Data figures.** Regenerate them from the underlying data in one consistent style. For LaTeX, use vector PDF;
-  for slides, use PNG at 200 dpi or more. Label axes with units. Make the comparison the figure argues for
-  visible at a glance.
+- **Choosing the form.** Whether a result becomes a table, a data figure or a diagram is decided with
+  `figures.md`. It also says how data figures use the `scientific-figure-making` skill.
+- **Data figures.** Regenerate them from the underlying data in one consistent style, as `figures.md` describes.
+  For LaTeX, use vector PDF; for slides, use PNG at 200 dpi or more. Label axes with units. Make the comparison the
+  figure argues for visible at a glance.
 - **Architecture and flow diagrams.** These often explain a system better than a page of text. Draw them as
   vector graphics (TikZ, or SVG converted to PDF), with the component names from the fact sheet.
 - **Figures in another language than the deliverable.** Leave the project's originals alone. Make translated
