@@ -20,7 +20,7 @@ deck can be rebuilt.
 **Audience.** It must work for listeners who have never seen the project. It is academic, but it never drowns in
 technical detail.
 
-**Order.** It moves top-down, from the big picture to the details:
+**Order.** When story mode is on, the order comes from `notes/story.md`: big picture and spine, one section per category, the spine again at the end. Otherwise it moves top-down, from the big picture to the details:
 1. the problem and why it matters;
 2. the idea and the overall architecture;
 3. the components or methods, grouped into a few families rather than listed one by one;

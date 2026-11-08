@@ -1,9 +1,9 @@
 ---
 name: project-report-and-slide-creation
-description: Turns a finished project in the workspace into its academic deliverables, end to end and unattended after one round of questions. It writes an IEEE-format LaTeX report (proposal, interim/status or final), kept in sync with and compiled on Overleaf. It draws data figures with the scientific-figure-making skill where they serve the paper best. It builds the presentation deck (.pptx and .pdf) with the slides skill. It writes personal study documents (a project primer, a per-person study guide, a minute-by-minute presentation script, a demo runbook and cheat sheet, and likely questions with answers). It runs the project when results are missing and runs one literature research round when the existing sources are not enough. Use it whenever the user wants a report, paper, write-up, proposal, interim or status report, presentation, slides, or material to prepare for presenting or demoing a project, solo or team, even if they only say "raporu yaz", "sunumu hazırla" or "write the final report".
+description: Turns a finished project in the workspace into its academic deliverables, end to end and unattended after one round of questions. It writes an IEEE-format LaTeX report (proposal, interim/status or final), kept in sync with and compiled on Overleaf. It draws data figures with the scientific-figure-making skill where they serve the paper best. It builds the presentation deck (.pptx and .pdf) with the slides skill. It writes personal study documents (a project primer, a per-person study guide, a minute-by-minute presentation script, a demo runbook and cheat sheet, and likely questions with answers). It runs the project when results are missing and runs one literature research round when the existing sources are not enough. On request it structures every deliverable around one storyline, from the big picture to the details. Use it whenever the user wants a report, paper, write-up, proposal, interim or status report, presentation, slides, or material to prepare for presenting or demoing a project, solo or team, even if they only say "raporu yaz", "sunumu hazırla" or "write the final report".
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Project report and slide creation
@@ -50,6 +50,37 @@ Before anything else, read `settings.md`. It holds the research team's models an
 9. **Check everything together, then deliver** (`references/quality-gates.md`).
    - Check compile logs, page fill, voice, and cross-document consistency.
    - Finish with a summary: the files, the Overleaf project, what you ran or generated, the research round status, and anything still open.
+   - If `notes/intake.md` has no story-mode line yet, end the summary with one question: whether to restructure the deliverables around a storyline (see "Story mode").
+
+## Story mode
+
+Story mode structures every deliverable around one storyline:
+- the big picture;
+- a few categories;
+- for each category, what was aimed for, achieved and not achieved;
+- the evidence, simple before detailed.
+
+It is off until the user turns it on, and it never changes a fact.
+
+**The toggle.** One line in `notes/intake.md`, `Story mode: on` or `Story mode: off`, records the user's choice for
+the project.
+- **No line yet.** Offer it once, as the last line of a run's final summary, never mid-run. The default in
+  `settings.md` decides whether to offer it.
+- **Off.** Never ask again in that project.
+- **Switching.** The user can switch it either way at any time by saying so ("hikayeleştir", "make it a story",
+  "drop the story mode").
+
+**Turning it on.**
+1. Read `references/storyline.md` once.
+2. Derive `notes/story.md` from the fact sheet.
+3. Restructure the existing deliverables from it: reorder, regroup, add lead sentences. Do not rewrite them from
+   scratch.
+
+**On from the start** (the user asked at intake, or `settings.md` says always on): derive `notes/story.md` right after the
+fact sheet in step 3, before the first deliverable, so nothing is written twice.
+
+**While it is on.** Every later deliverable reads only `notes/story.md`. Reread `storyline.md` only to derive the story
+again after the facts change.
 
 ## Rules that hold in every run
 
@@ -111,7 +142,7 @@ Unless the user names another place, everything goes under `deliverables/` at th
 
 ```text
 deliverables/
-├── notes/           intake.md, facts.md, plan.md, evidence.md, figures.md (working notes, not handed in)
+├── notes/           intake.md, facts.md, plan.md, evidence.md, figures.md, story.md (working notes, not handed in)
 ├── research/        the research round's folder, if one ran (README.md, references.bib, literature.md, ...)
 ├── evidence/        results, figures and screenshots this run generated, with the scripts that made them
 ├── report-<kind>/   one LaTeX project per report, mirrored on Overleaf (main.tex, sections/, figures/, tables/, code/)

@@ -63,6 +63,11 @@ Run all of them on the final versions. Fix what they find, and run them again af
   only in scope.
 - **Scripts and the deck.** The study scripts' slide numbers and titles match the final deck.
 - **Runbook and cheat sheet.** The demo runbook and cheat sheet match what the demo test actually did.
+- **Story mode, when on.** Every deliverable states the spine of `notes/story.md` in the same order and with the same
+  numbers: in the abstract and the conclusion, on the first and last content slides, and in the study documents.
+  - Outcomes are grouped by category.
+  - Each category names what it did not achieve; a closing cross-cutting category may state its limits inline.
+  - No deliverable mentions the mode itself.
 
 ## 5. Deliver
 

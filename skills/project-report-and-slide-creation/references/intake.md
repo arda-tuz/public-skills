@@ -33,6 +33,8 @@ a default for each item, so that "defaults are fine" is a complete answer. When 
 available, use it for the multiple-choice items (up to four per call, back to back). Ask free-form items such as
 names, links and the cookie in plain text in the same round.
 
+Do not ask about story mode here unless the user raised it; `SKILL.md` says when it is offered.
+
 Typical items, each only when still unknown:
 
 1. **Deliverables.** Which reports (proposal, interim or status, final, or a course-specific kind), the deck, and

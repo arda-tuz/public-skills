@@ -28,6 +28,7 @@ says how to handle a conflict.
   - the study documents, which are not handed in, are in Turkish. Every scientific, academic or technical term is
     followed right after the Turkish word by its original English term in parentheses, for example "çapraz
     doğrulama (cross-validation)". Jargon borrowed from English also gets its English form in parentheses.
+- Story mode: offer it once, at the end of the first run's summary. Other choices the user may write here: always on, never offer.
 - Report length: decided by the content. When the user gives a page limit, the PDF meets it, references included.
 - File names:
   - `<kind>-report.pdf`, for example `final-report.pdf`;

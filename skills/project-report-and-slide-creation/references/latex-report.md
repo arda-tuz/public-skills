@@ -66,6 +66,8 @@ report-<kind>/
 
 ## Sections
 
+When story mode is on, the section order, the abstract and the conclusion follow `notes/story.md`.
+
 - The user's mandatory sections come first, in the order and with the names they gave.
 - Design the rest for the report kind (`scope.md`) and for the strongest possible paper: add sections and
   subsections where the material calls for them, and merge where it is thin.

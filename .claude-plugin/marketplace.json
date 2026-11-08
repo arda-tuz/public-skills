@@ -40,11 +40,23 @@
     },
     {
       "name": "project-report-and-slide-creation",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "description": "Turns a finished project into an IEEE LaTeX report on Overleaf, a presentation deck and study documents, after one round of questions",
       "source": "./",
       "strict": false,
-      "skills": ["./skills/project-report-and-slide-creation"]
+      "skills": ["./skills/project-report-and-slide-creation"],
+      "dependencies": ["scientific-figure-making"]
+    },
+    {
+      "name": "scientific-figure-making",
+      "description": "Publication-ready matplotlib figures in the figures4papers house style. Third-party, CC BY-NC 4.0, fetched from its own repository as a dependency of project-report-and-slide-creation",
+      "source": {
+        "source": "github",
+        "repo": "ChenLiu-1996/figures4papers"
+      },
+      "repository": "https://github.com/ChenLiu-1996/figures4papers",
+      "license": "CC-BY-NC-4.0",
+      "skills": ["./scientific-figure-making"]
     }
   ]
 }

@@ -10,6 +10,8 @@ they can:
 These documents are private preparation material, so the voice rule does not apply. Point at files, functions,
 commands and logs whenever that helps the reader.
 
+When story mode is on, every document uses the categories of `notes/story.md`, in the deck's order, and groups the likely questions by category.
+
 ## The general primer, shared by the whole team
 
 It covers the entire project, independent of who did what, so every member also understands the parts they did

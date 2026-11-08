@@ -9,16 +9,26 @@ tool, how to load it, and where the paper's format overrides it.
 `scientific-figure-making` updates itself from its upstream repository. This skill must follow whatever version is
 installed today. So nothing from it is copied here: no palette, no rcParams, no helper code.
 
+**How it gets here.** Installed as a Claude Code plugin from `arda-tuz/public-skills`, this skill declares
+`scientific-figure-making` as a plugin dependency, so Claude Code installs it from its upstream repository together
+with this skill. Its version is the upstream commit, so every upstream commit reaches the user as an update. Other
+installs bring their own copy, or none.
+
 **Load it fresh in every run, the first time a figure is planned:**
-1. If the Skill tool lists `scientific-figure-making`, invoke it.
-2. Otherwise read its `SKILL.md` from the first agent skill root that has it: `~/.claude/skills/`, then
-   `~/.agents/skills/`, then `~/.codex/skills/`.
+1. If the Skill tool lists `scientific-figure-making`, invoke it. Installed as a plugin, it is listed as
+   `scientific-figure-making:scientific-figure-making`.
+2. Otherwise read its `SKILL.md` from the first place that has it: `~/.claude/skills/`, then `~/.agents/skills/`,
+   then `~/.codex/skills/`, then the plugin's install path. For the plugin, take `installPath` of
+   `scientific-figure-making@arda-tuz-skills` from `~/.claude/plugins/installed_plugins.json`; the skill is its
+   `scientific-figure-making/` folder.
 3. Open its `references/` files as its own `SKILL.md` directs, when a figure needs them, and not all of them up
    front.
-4. When the skill folder is a symlink into a git checkout, the repository's demo scripts sit one level above the
-   skill folder (`readlink -f`, then `..`). Open the closest demo for a chart type you have not drawn yet.
+4. The repository's demo scripts (`figure_*`) sit one level above the skill folder, both in a plugin install and
+   when the skill folder is a symlink into a git checkout (`readlink -f`, then `..`). Open the closest demo for a
+   chart type you have not drawn yet. When they are not on disk, use the links in its `references/demos.md`.
 
 **Record which version you followed.** In `notes/evidence.md`, write the date and the revision:
+- a plugin install: the name of its install folder, which is the upstream commit shortened to 12 characters;
 - a git checkout: `git -C <checkout> rev-parse --short HEAD`;
 - otherwise: "unversioned" and the file date of its `SKILL.md`.
 

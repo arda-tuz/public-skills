@@ -10,7 +10,7 @@ Agent skills I build and want to share with other people. Instead of a separate 
 | [`timed-commit-automation`](skills/timed-commit-automation) | Gradual, scheduled migration of a project between GitHub repositories | Claude Code only |
 | [`study-buddy`](skills/study-buddy) | Study partner for a course and its exams, with a self-updating study folder | Any agent with Python 3.8+ |
 | [`web-course-complete`](skills/web-course-complete) | Web course completion with browser use, computer use and local practice | Any agent with browser and computer-use tools |
-| [`project-report-and-slide-creation`](skills/project-report-and-slide-creation) | IEEE report on Overleaf, presentation deck and study documents from a finished project | Any agent with LaTeX; the research round runs best in Claude Code |
+| [`project-report-and-slide-creation`](skills/project-report-and-slide-creation) | IEEE report on Overleaf, presentation deck and study documents from a finished project | Claude Code only, best as a plugin |
 
 ### create-uml-seq-diagram
 
@@ -30,7 +30,7 @@ Works through a web course from its existing progress using one user-selected mo
 
 ### project-report-and-slide-creation
 
-Turns a finished project into its academic deliverables after one round of questions: an IEEE two-column LaTeX report kept on and compiled by Overleaf, a presentation deck built with the `slides` skill, and private study documents with a presentation script, a tested demo runbook and likely questions. It reads the code, checks every number against the results, runs the project when results are missing, and runs one literature research round when the project's sources are not enough. It chooses a table, a data figure or a diagram for each visual, and draws data figures with the `scientific-figure-making` skill where that serves the paper. It handles solo and team projects and proposal, interim and final reports. Without an instruction the report and deck are in English and the study documents are in Turkish. [More](skills/project-report-and-slide-creation/README.md).
+Turns a finished project into its academic deliverables after one round of questions: an IEEE two-column LaTeX report kept on and compiled by Overleaf, a presentation deck built with the `slides` skill, and private study documents with a presentation script, a tested demo runbook and likely questions. It reads the code, checks every number against the results, runs the project when results are missing, and runs one literature research round when the project's sources are not enough. It chooses a table, a data figure or a diagram for each visual, and draws data figures with the `scientific-figure-making` skill where that serves the paper. It handles solo and team projects and proposal, interim and final reports. Without an instruction the report and deck are in English and the study documents are in Turkish. Installed as a plugin, it brings `scientific-figure-making` along as a dependency, fetched from its own repository and updated with it. [More](skills/project-report-and-slide-creation/README.md).
 
 ## Install
 
@@ -59,7 +59,7 @@ npx skills add arda-tuz/public-skills --skill SKILL --agent claude-code --global
 
 ### Claude Code: plugin marketplace
 
-This repository is also a Claude Code plugin marketplace with one plugin per skill. Inside Claude Code:
+This repository is also a Claude Code plugin marketplace with one plugin per skill. It also lists `scientific-figure-making` from [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers), which is not one of these skills: `project-report-and-slide-creation` depends on it, so Claude Code installs it from that repository with the plugin. Inside Claude Code:
 
 ```text
 /plugin marketplace add arda-tuz/public-skills
@@ -134,7 +134,7 @@ gemini skills install https://github.com/arda-tuz/public-skills.git --path skill
 New versions are announced to you; nothing on your machine has to keep checking.
 
 - **Get notified.** On GitHub, open this repository and choose **Watch → Custom → Releases**. Every published update is a release named `SKILL--vVERSION` that says what changed, and GitHub notifies you by e-mail or in its mobile app.
-- **Claude Code plugins can update themselves.** Turn it on once: `/plugin` → **Marketplaces** → `arda-tuz-skills` → **Enable auto-update**. Claude Code then checks once per session, in the background, and shows `Plugin updated: SKILL · Run /reload-plugins to apply`. A plugin updates only when its own version changes, so a change to another skill or to this README never triggers one.
+- **Claude Code plugins can update themselves.** Turn it on once: `/plugin` → **Marketplaces** → `arda-tuz-skills` → **Enable auto-update**. Claude Code then checks once per session, in the background, and shows `Plugin updated: SKILL · Run /reload-plugins to apply`. A plugin updates only when its own version changes, so a change to another skill or to this README never triggers one. The exception is `scientific-figure-making`, whose version is its upstream commit, so auto-update also follows every change in its repository.
 - **Skills installed with the `skills` CLI:** when a release arrives, run `npx skills update` (with `--global` for user-level installs).
 - **Manual copies:** copy the folder again.
 
@@ -150,7 +150,7 @@ skills/<name>/              one folder per skill
   agents/openai.yaml        Codex display metadata
   settings.md               plain-language settings, if the skill has any
   scripts/ references/ assets/ docs/
-.claude-plugin/marketplace.json   Claude Code marketplace, one plugin per skill
+.claude-plugin/marketplace.json   Claude Code marketplace, one plugin per skill, plus scientific-figure-making
 ```
 
 ## License
