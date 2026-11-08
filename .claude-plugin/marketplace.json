@@ -8,6 +8,7 @@
   "plugins": [
     {
       "name": "create-uml-seq-diagram",
+      "version": "2.1",
       "description": "Draws exam-ready UML 2.5.1 class and sequence diagrams as HTML/SVG and checks the notation and layout",
       "source": "./",
       "strict": false,
@@ -15,6 +16,7 @@
     },
     {
       "name": "timed-commit-automation",
+      "version": "1.0.0",
       "description": "Moves a finished project into another GitHub repository as a calendar of real-time commits pushed by a Claude Code cloud routine",
       "source": "./",
       "strict": false,
@@ -22,6 +24,7 @@
     },
     {
       "name": "web-course-complete",
+      "version": "0.0.0-a1bdc9959f19",
       "description": "Works through web courses with one user-selected model for browser use, computer use and local practice, with an optional installation subagent",
       "source": "./",
       "strict": false,
@@ -29,6 +32,7 @@
     },
     {
       "name": "study-buddy",
+      "version": "0.0.0-d79cd4c79497",
       "description": "Turns a course folder into a self-updating study system: top-down explanations, past-question analysis, progress tracking, practice exams and annotated slides",
       "source": "./",
       "strict": false,
@@ -36,6 +40,7 @@
     },
     {
       "name": "project-report-and-slide-creation",
+      "version": "1.1.0",
       "description": "Turns a finished project into an IEEE LaTeX report on Overleaf, a presentation deck and study documents, after one round of questions",
       "source": "./",
       "strict": false,

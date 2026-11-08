@@ -129,6 +129,17 @@ gh skill install arda-tuz/public-skills skills/SKILL --agent claude-code --scope
 gemini skills install https://github.com/arda-tuz/public-skills.git --path skills/SKILL --scope user
 ```
 
+## Staying up to date
+
+New versions are announced to you; nothing on your machine has to keep checking.
+
+- **Get notified.** On GitHub, open this repository and choose **Watch → Custom → Releases**. Every published update is a release named `SKILL--vVERSION` that says what changed, and GitHub notifies you by e-mail or in its mobile app.
+- **Claude Code plugins can update themselves.** Turn it on once: `/plugin` → **Marketplaces** → `arda-tuz-skills` → **Enable auto-update**. Claude Code then checks once per session, in the background, and shows `Plugin updated: SKILL · Run /reload-plugins to apply`. A plugin updates only when its own version changes, so a change to another skill or to this README never triggers one.
+- **Skills installed with the `skills` CLI:** when a release arrives, run `npx skills update` (with `--global` for user-level installs).
+- **Manual copies:** copy the folder again.
+
+Install a skill either as a plugin or with the `skills` CLI, not both. Otherwise it loads twice, once as `/SKILL` and once as `/SKILL:SKILL`.
+
 ## Repository layout
 
 ```text
