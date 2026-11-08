@@ -1,6 +1,8 @@
 ---
 name: "study-buddy"
 description: "Personal study partner for any course and exam (quiz, midterm, final): sets up a self-updating study folder, explains topics top-down, maps past questions, tracks progress, builds practice exams and annotated slides. Use whenever the user studies a course (ders çalışma, vize, final, quiz, çıkmış sorular)."
+metadata:
+  version: "1.0.0"
 ---
 
 # Study Buddy · system v3
